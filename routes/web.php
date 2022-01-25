@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\Admin\CategoryController;
+use App\http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,10 @@ Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->nam
   Route::get('categories','Admin\CategoryController@index');
   Route::get('add categories','Admin\CategoryController@add');
   Route::post('insert-category','Admin\CategoryController@insert');
-Route::get('edit-prod/{id}',[CategoryController::class,'edit']);
+Route::get('edit-category/{id}',[CategoryController::class,'edit']);
 Route::put('update-category/{id}',[CategoryController::class,'update']);
 Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
+Route::get('products',[ProductController::class,'index']);
+Route::get('add products',[ProductController::class,'add']);
+Route::post('insert-product',[ProductController::class,'insert']);
 });
