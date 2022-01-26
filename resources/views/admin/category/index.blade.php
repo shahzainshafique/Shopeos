@@ -4,9 +4,10 @@
     <div class="card">
         <div class="card-header">
         <h1>Category Page</h1>
+        <hr>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                     <th >Id</th>

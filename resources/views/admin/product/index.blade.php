@@ -4,9 +4,10 @@
     <div class="card">
         <div class="card-header">
         <h1>Product Page</h1>
+        <hr>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                     <th >Id</th>
@@ -26,7 +27,7 @@
                             
                             <td><img src="{{asset('assets/uploads/products/'.$item->image)}}" class="cate-image" alt="image here"></td>
                             <td><a href='{{url('edit-product/'.$item->id)}}' class="btn btn-primary btn-sm">Edit</a></td>
-                            <td><a href='{{url('delete-category/'.$item->id)}}' class="btn btn-danger btn-sm">Delete</a></td>
+                            <td><a href='{{url('delete-product/'.$item->id)}}' class="btn btn-danger btn-sm">Delete</a></td>
                             
                         </tr>
                     @endforeach
