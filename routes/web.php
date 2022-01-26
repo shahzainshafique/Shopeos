@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\Admin\CategoryController;
 use App\http\Controllers\Admin\ProductController;
+use App\http\Controllers\Frontend\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,11 @@ use App\http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/',[FrontendController::class,'index']);
 Auth::routes();
 
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
