@@ -35,4 +35,5 @@ Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
 Route::get('products',[ProductController::class,'index']);
 Route::get('add products',[ProductController::class,'add']);
 Route::post('insert-product',[ProductController::class,'insert']);
+Route::get('edit-product/{id}',[ProductController::class,'edit']);
 });

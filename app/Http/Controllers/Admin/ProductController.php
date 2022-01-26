@@ -43,4 +43,8 @@ class ProductController extends Controller
         $products->save();
         return redirect('products')->with('status','Product addedd successfully!');
     }
+    public function edit($id){
+        $products=Product::find($id);
+        return view('admin.product.edit',compact('products'));
+    }
 }
