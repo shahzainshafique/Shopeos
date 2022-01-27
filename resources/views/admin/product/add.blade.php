@@ -51,12 +51,12 @@
 </div>             
                 <div class="col-md-12 mb-3">
                 <label for="">Status</label>
-               <input type="checkbox"  name="status">
+               <input type="checkbox" class="form-control" name="status">
                 
 </div>
                 <div class="col-md-12 mb-3">
                 <label for="">Trending</label>
-               <input type="checkbox"  name="trending">
+               <input type="checkbox"class="form-control" name="trending">
                 
 </div>
                 <div class="col-md-12 mb-3">

@@ -21,13 +21,13 @@
                <textarea name="description"row="3" class="form-control"></textarea>
 </div>          
           
-               <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                 <label for="">Status</label>
-                <input type="checkbox" class="form-control" name="status">
+               <input type="checkbox"  name="status">
 </div>
-               <div class="col-md-6 mb-3">
+                 <div class="col-md-12 mb-3">
                 <label for="">Popular</label>
-                <input type="checkbox" class="form-control" name="popular">
+               <input type="checkbox"  name="popular">
 </div>
                 <div class="col-md-6 mb-3">
                 <label for="">Meta Title</label>

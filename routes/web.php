@@ -20,8 +20,9 @@ use App\http\Controllers\Frontend\FrontendController;
 // });
 
 Route::get('/',[FrontendController::class,'index']);
-Auth::routes();
 
+Route::get('/category',[FrontendController::class,'category']);
+Auth::routes();
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
