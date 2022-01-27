@@ -14,6 +14,7 @@
                     
                 
                 <div class="item">
+                
                     <div class="card" >
                         
                         <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: 200px;height:200px">

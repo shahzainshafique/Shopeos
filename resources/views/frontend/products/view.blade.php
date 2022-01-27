@@ -67,11 +67,11 @@
 
 <div class="input-group text-center mb-3">
 
-<span class="input-group-text">-</span>
+<button class="input-group-text decrement-btn">-</button>
 
-<input type="text" name="quantity" value="1" class="form-control" />
+<input type="text" name="quantity " value="1" class="form-control qtv-input" />
 
-<span class="input-group-text">+</span>
+<button class="input-group-text Increment-btn">+</button>
 
 </div>
 
@@ -82,9 +82,9 @@
 
 <br/>
 
-<button type="button" class="btn btn-success me-3 float-start"> Add to Wishlist</button>
+<button type="button" class="btn btn-success me-3 float-start"> Add to Wishlist <i class="fa fa-heart"></i></button>
 
-<button type="button" class="btn btn-primary me-3 float-start">Add to Cart</button>
+<button type="button" class="btn btn-primary me-3 float-start">Add to Cart<i class="fa fa-shopping-cart"></i></button>
 
 </div>
 
@@ -100,3 +100,38 @@
 
 </div>
 @endsection
+@section('scripts')
+<script>
+
+$(document).ready(function ()
+{
+   $('.Increment-btn').click(function (e)
+   {
+       e.preventDefault();
+
+       var int_Value=$('.qtv-input').val();
+       var value=parseInt(int_Value,10);
+       value=isNaN(value) ? 0 : value;
+       if (value<11){
+           value++;
+           $('.qtv-input').val(value);
+       }
+   });
+   $('.decrement-btn').click(function (e)
+   {
+       e.preventDefault();
+
+       var dec_Value=$('.qtv-input').val();
+       var value=parseInt(dec_Value,10);
+       value=isNaN(value) ? 0 : value;
+       if (value>1){
+           value--;
+           $('.qtv-input').val(value);
+       }
+   });
+
+
+});
+
+    </script>
+    @endsection
