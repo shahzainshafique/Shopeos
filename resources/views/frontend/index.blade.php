@@ -15,6 +15,7 @@
                 
                 <div class="item">
                     <div class="card" >
+                        
                         <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: 200px;height:200px">
                         <div class="card-body">
                             <h5>{{$prod->name}}</h5>
@@ -33,20 +34,21 @@
                 <h2>Trending categories</h2>
                 <div class="owl-carousel featured-carousel owl-theme">
     
-          @foreach ($trending_category as $category)
+          @foreach ($trending_category as $tcategory)
     
                 
                 <div class="item">
+                    <a href="{{url('view-category/'.$tcategory->slug)}}">
                     <div class="card" >
-                        <img src="{{asset('assets/uploads/category/'.$category->image)}}" alt="product image" style="width: 200px;height:200px">
+                        <img src="{{asset('assets/uploads/category/'.$tcategory->image)}}" alt="product image" style="width: 200px;height:200px">
                         <div class="card-body">
-                            <h5>{{$category->name}}</h5>
+                            <h5>{{$tcategory->name}}</h5>
                         <p>
-                        {{$category->description}}
+                        {{$tcategory->description}}
 
 </p>
                     
-                    </div></div></div>
+                    </div></div></a></div>
                     @endforeach
 </div>
 </div>    </div></div>

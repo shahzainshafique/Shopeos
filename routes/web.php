@@ -16,17 +16,19 @@ use App\http\Controllers\Frontend\FrontendController;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/',[FrontendController::class,'index']);
-
-Route::get('/category',[FrontendController::class,'category']);
-Auth::routes();
+  //     return view('welcome');
+  // });
+  
+  Route::get('/',[FrontendController::class,'index']);
+  
+  Route::get('category',[FrontendController::class,'category']);
+  Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
+  Route::get('category/{cate_slug}/{prod_slug}',[FrontendController::class,'productview']);
+  Auth::routes();
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
- Route::middleware(['auth','isAdmin'])->group(function () {
+Route::middleware(['auth','isAdmin'])->group(function () {
 
    Route::get('/dashboard', 'Admin\FrontendController@index');
   Route::get('categories','Admin\CategoryController@index');

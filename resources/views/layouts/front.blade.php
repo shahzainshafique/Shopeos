@@ -18,6 +18,11 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    a{
+      text-decoration: none !important;
+    }
+  </style>
 </head>
     <body>
         
