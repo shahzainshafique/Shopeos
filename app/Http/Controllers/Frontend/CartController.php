@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
@@ -20,7 +21,7 @@ class CartController extends Controller
 
         if(Cart::where('prod_id',$product_id)->where('user_id',Auth::id())->exists())
         {
-            return response()->json(['status'=>$prod_check->name."Already Add to Cart"]);
+            return response()->json(['status'=>$prod_check->name." already added to Cart!"]);
         }
         else
         {
@@ -29,7 +30,7 @@ class CartController extends Controller
           $cartitem->user_id=Auth::id();
           $cartitem->prod_qtv=$product_qtv;
           $cartitem->save();
-          return response()->json(['status'=>$prod_check->name."Add to Cart"]);
+          return response()->json(['status'=>$prod_check->name." added to Cart!"]);
         }
       }
     

@@ -70,7 +70,7 @@
 
 <button class="input-group-text decrement-btn">-</button>
 
-<input type="text" name="quantity " value="1" class="form-control qtv-input" />
+<input type="text" name="quantity " value="1" class="form-control qtv-input text-center" />
 
 <button class="input-group-text Increment-btn">+</button>
 
@@ -83,7 +83,7 @@
 
 <br/>
 
-<button type="button" class="btn btn-success me-3 float-start"> Add to Wishlist <i class="fa fa-heart"></i></button>
+<button type="button" class="btn btn-success me-3  float-start"> Add to Wishlist <i class="fa fa-heart"></i></button>
 
 <button type="button" class="btn btn-primary me-3 addToCartBtn float-start">Add to Cart<i class="fa fa-shopping-cart"></i></button>
 
@@ -112,6 +112,7 @@ $(document).ready(function ()
        e.preventDefault();
        var product_id=$(this).closest('.product_data').find('.prod_id').val();
        var product_qtv=$(this).closest('.product_data').find('.qtv-input').val();
+       
       
        $.ajaxSetup({
     headers: {
@@ -132,7 +133,7 @@ $(document).ready(function ()
           },
           success: function (response){
 
-              alert(response.status);
+              swal(response.status);
           }
       });
 
