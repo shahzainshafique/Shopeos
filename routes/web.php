@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\Admin\CategoryController;
-use App\http\Controllers\Admin\ProductController;
-use App\http\Controllers\Frontend\FrontendController;
-use App\http\Controllers\Frontend\CartController;
+use app\Http\Controllers\Admin\CategoryController;
+use app\Http\Controllers\Admin\ProductController;
+use app\Http\Controllers\Frontend\CartController;
+use app\Http\Controllers\Frontend\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +29,8 @@ use App\http\Controllers\Frontend\CartController;
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function (){
- // Route::post('add-to-cart',[CartController::class,'addProduct']);
-  Route::post('add-to-cart', 'Frontend\CartController@addProduct')->name('addProduct');
+//  Route::post('add-to-cart',[CartController::class,'addProduct']);
+  Route::post('add-to-cart', 'CartController@addProduct')->name('addProduct');
 
 });
 

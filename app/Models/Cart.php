@@ -13,6 +13,5 @@ class Cart extends Model
     'user_id',
     'prod_id',
     'prod_qtv',
-    
     ];
 }
