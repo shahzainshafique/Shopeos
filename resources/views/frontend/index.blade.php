@@ -9,12 +9,11 @@
             <div class="row">
                 <h2>Featured Products</h2>
                 <div class="owl-carousel featured-carousel owl-theme">
-    
+
+                    {{-- @foreach ($category as $cat)  --}}
     @foreach ($featured_products as $prod)
-                    
-                
                 <div class="item">
-                
+                <a href="{{url('category/'.$prod->category->slug.'/'.$prod->slug)}}">
                     <div class="card" >
                         
                         <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: 200px;height:200px">
@@ -24,8 +23,11 @@
                         <span class="float-end"><s>{{$prod->original_price}}</s></span>
                     
                     </div></div></div>@endforeach
+                     {{-- @endforeach --}}
 </div>
-                </div></div>
+                </div>
+            </a>
+        </div>
     </div>
     
   
