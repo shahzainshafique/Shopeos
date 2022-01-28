@@ -112,6 +112,7 @@ $(document).ready(function ()
        e.preventDefault();
        var product_id=$(this).closest('.product_data').find('.prod_id').val();
        var product_qtv=$(this).closest('.product_data').find('.qtv-input').val();
+       
       
        $.ajaxSetup({
     headers: {

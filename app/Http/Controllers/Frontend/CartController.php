@@ -16,12 +16,12 @@ class CartController extends Controller
      $product_qtv=$request->input('product_qtv');
 
      if(Auth::check()){
-      $prod_check=Product::where('id',$product_id)->exists();
+      $prod_check=Product::where('id',$product_id)->first();
       if($prod_check){
 
-        if(Cart::where('prod_id',$product_id)->where('user_id',Auth::id())->where('prod_qtv',$product_qtv)->first())
+        if(Cart::where('prod_id',$product_id)->where('user_id',Auth::id())->exists())
         {
-            return response()->json(['status'=>$prod_check->name."Already Added to Cart"]);
+            return response()->json(['status'=>$prod_check->name." already added to Cart!"]);
         }
         else
         {
@@ -30,7 +30,7 @@ class CartController extends Controller
           $cartitem->user_id=Auth::id();
           $cartitem->prod_qtv=$product_qtv;
           $cartitem->save();
-          return response()->json(['status'=>$prod_check->name."Add to Cart"]);
+          return response()->json(['status'=>$prod_check->name." added to Cart!"]);
         }
       }
     
