@@ -117,15 +117,20 @@ $(document).ready(function ()
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
+          
+          
+
 });
       $.ajax({
-          method:"POST",
+          method:"Post",
+          
           url:"/add-to-cart",
+
           data:{
               'product_id':product_id,
               'product_qtv':product_qtv,
           },
-          success : function (response){
+          success: function (response){
 
               alert(response.status);
           }

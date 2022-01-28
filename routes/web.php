@@ -29,7 +29,8 @@ use App\http\Controllers\Frontend\CartController;
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function (){
-  Route::post('add-to-cart',[CartController::class,'addProduct']);
+ // Route::post('add-to-cart',[CartController::class,'addProduct']);
+  Route::post('add-to-cart', 'Frontend\CartController@addProduct')->name('addProduct');
 
 });
 
