@@ -14,7 +14,7 @@
 
 <div class="container">
 
-<div class="card shadow">
+<div class="card shadow product_data">
 
 <div class="card-body">
 
@@ -62,6 +62,7 @@
 <div class="row mt-2">
 
 <div class="col-md-2">
+ <input type="hidden" value="{{ $products->id }}" class="prod_id">
 
 <label for="Quantity">Quantity</label>
 
@@ -84,7 +85,7 @@
 
 <button type="button" class="btn btn-success me-3 float-start"> Add to Wishlist <i class="fa fa-heart"></i></button>
 
-<button type="button" class="btn btn-primary me-3 float-start">Add to Cart<i class="fa fa-shopping-cart"></i></button>
+<button type="button" class="btn btn-primary me-3 addToCartBtn float-start">Add to Cart<i class="fa fa-shopping-cart"></i></button>
 
 </div>
 
@@ -105,6 +106,34 @@
 
 $(document).ready(function ()
 {
+    $('.addToCartBtn').click(function (e)
+   {
+
+       e.preventDefault();
+       var product_id=$(this).closest('.product_data').find('.prod_id').val();
+       var product_qtv=$(this).closest('.product_data').find('.qtv-input').val();
+      
+       $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+      $.ajax({
+          method:"POST",
+          url:"/add-to-cart",
+          data:{
+              'product_id':product_id,
+              'product_qtv':product_qtv,
+          },
+          success : function (response){
+
+              alert(response.status);
+          }
+      });
+
+
+   });
+
    $('.Increment-btn').click(function (e)
    {
        e.preventDefault();
