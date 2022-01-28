@@ -14,6 +14,7 @@ class FrontendController extends Controller
     {
         $featured_products=Product::where('trending','1')->take(15)->get();
         $trending_category=Category::where('popular','1')->take(15)->get();
+    
        return view('frontend.index',compact('featured_products','trending_category'));
     }
     public function category(){
