@@ -26,25 +26,24 @@ use app\Http\Controllers\Frontend\FrontendController;
   Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
   Route::get('category/{cate_slug}/{prod_slug}',[FrontendController::class,'productview']);
   Auth::routes();
-Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
+  // Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('add-to-cart',[CartController::class,'addProduct']);
 
 Route::middleware(['auth'])->group(function (){
-//  Route::post('add-to-cart',[CartController::class,'addProduct']);
-  Route::post('add-to-cart', 'CartController@addProduct')->name('addProduct');
-
+  Route::get('cart',[CartController::class,'viewcart']);
 });
 
 Route::middleware(['auth','isAdmin'])->group(function () {
-
+  
   Route::get('/dashboard', 'Admin\FrontendController@index');
   Route::get('categories','Admin\CategoryController@index');
   Route::get('add categories','Admin\CategoryController@add');
   Route::post('insert-category','Admin\CategoryController@insert');
-Route::get('edit-category/{id}',[CategoryController::class,'edit']);
-Route::put('update-category/{id}',[CategoryController::class,'update']);
-Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
-
-Route::get('products',[ProductController::class,'index']);
+  Route::get('edit-category/{id}',[CategoryController::class,'edit']);
+  Route::put('update-category/{id}',[CategoryController::class,'update']);
+  Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
+  
+  Route::get('products',[ProductController::class,'index']);
 Route::get('add products',[ProductController::class,'add']);
 Route::post('insert-product',[ProductController::class,'insert']);
 

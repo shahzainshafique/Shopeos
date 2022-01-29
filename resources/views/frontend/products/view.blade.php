@@ -6,7 +6,7 @@
 
 <div class="container">
 
-<h6 class="mb-0">Collections / {{$products->category->name}} / {{$products->name}} </h6>
+<h6 class="mb-0"><a href="{{url('category')}}">Collections </a>/ <a href="{{url('cateogry/'.$products->category->slug)}}"> {{$products->category->name}}</a> / <a href="{{url('cateogry/'.$products->category->slug.'/'.$products->slug)}}">{{$products->name}} </h6>
 
 </div>
 

@@ -13,6 +13,9 @@
           <a class="nav-link" href="{{ url('category') }}">Categories</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{ url('cart') }}">My Cart</a>
+        </li>
+        <li class="nav-item">
           <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
