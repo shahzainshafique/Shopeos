@@ -11,22 +11,14 @@
                 <div class="col-md-7">
                     <div class="card">
                     <div class="card-body">
-                    <h6>Basic Detail</h6>
+                    <h6>Basic Details</h6>
                    <hr>
                     <div class="row checkout-form">
-                <div class="col-md-6">
-                    <label for="">First Name</label>
-                  <input type="text" class="form-control" placeholder="Enter first Name">
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="">Last Name</label>
-                  <input type="text" class="form-control" placeholder="Enter LastName">
-                  </div>
+                
 
                   <div class="col-md-6">
                     <label for="">First Name</label>
-                  <input type="text" class="form-control" placeholder="Enter first Name">
+                  <input type="text" class="form-control " placeholder="Enter first Name">
                   </div>
 
                   <div class="col-md-6">
@@ -36,7 +28,7 @@
                     
                   <div class="col-md-6">
                     <label for="">Phone Number</label>
-                  <input type="text" class="form-control" placeholder="Enter Phone Number">
+                  <input type="text" class="form-control " placeholder="Enter Phone Number">
                   </div>
 
                   <div class="col-md-6">
@@ -101,7 +93,8 @@
 </tbody>
 </table>
                 <hr>
-                <button class="btn btn-primary float-end">Place Order</button>
+                <div class="d-grid gap-2">
+                <button class="btn btn-primary float-end btn-block">Place Order</button></div>
 
                    
  </div>

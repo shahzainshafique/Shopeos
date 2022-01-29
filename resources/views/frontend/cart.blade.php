@@ -43,14 +43,22 @@
 
 <div class="col-md-3 my-auto">
 
-<input type="hidden" class="prod_id" value="{{$item->prod_id}}"> <label for="Quantity">Quantity</label>
+<input type="hidden" class="prod_id" value="{{$item->prod_id}}">
+ <label for="Quantity">Quantity</label>
+@if ($item->products->qty>$item->prod_qtv)
+    
 
 <div class="input-group text-center mb-3" style="width:130px;"> <button class="input-group-text changeQuantity decrement-btn">-</button>
 
 <input type="text" name="quantity" class="form-control qtv-input text-center" value="{{$item->prod_qtv}}"> <button class="input-group-text changeQuantity Increment-btn">+</button>
 
 </div>
-
+@php
+      $total+=$item->products->selling_price*$item->prod_qtv;
+  @endphp
+@else
+  <h6>Out of Stock</h6>
+@endif
 </div>
 
 <div class="col-md-2 my-auto">
@@ -60,9 +68,7 @@
 </div>
 
 </div>
-@php
-      $total+=$item->products->selling_price*$item->prod_qtv;
-  @endphp
+
 @endforeach
 </div>
 <div class="card-footer">
