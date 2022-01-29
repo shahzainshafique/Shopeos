@@ -11,6 +11,6 @@ class CheckoutController extends Controller
     
   public function index(){
         $cartitems=Cart::where('user_id',Auth::id())->get();
-        return view('Frontend.Checkout',compact('cartitems'));
+        return view('frontend.checkout',compact('cartitems'));
     } 
 }

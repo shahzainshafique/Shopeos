@@ -16,43 +16,58 @@
   <div class="card shadow">
 
 <div class="card-body">
+  @php
+      $total=0;
+  @endphp
 @foreach ($cartitems as $item)
     
 
 <div class="row product_data">
 
-<div class="col-md-2">
+<div class="col-md-2 my-auto">
 
 <img src="{{asset('assets/uploads/products/'.$item->products->image)}}" height="70px" width="70px"alt="Image here">
 
 </div>
 
-<div class="col-md-5">
+<div class="col-md-3 my-auto">
 
 <h6>{{$item->products->name}}</h6>
 
 </div>
+<div class="col-md-2 my-auto">
 
-<div class="col-md-3">
+<h6>Rs. {{$item->products->selling_price}}</h6>
+
+</div>
+
+<div class="col-md-3 my-auto">
 
 <input type="hidden" class="prod_id" value="{{$item->prod_id}}"> <label for="Quantity">Quantity</label>
 
-<div class="input-group text-center mb-3" style="width:130px;"> <button class="input-group-text decrement-btn">-</button>
+<div class="input-group text-center mb-3" style="width:130px;"> <button class="input-group-text changeQuantity decrement-btn">-</button>
 
-<input type="text" name="quantity" class="form-control qtv-input text-center" value="{{$item->prod_qtv}}"> <button class="input-group-text Increment-btn">+</button>
-
-</div>
+<input type="text" name="quantity" class="form-control qtv-input text-center" value="{{$item->prod_qtv}}"> <button class="input-group-text changeQuantity Increment-btn">+</button>
 
 </div>
 
-<div class="col-md-2">
+</div>
+
+<div class="col-md-2 my-auto">
 
 <button class="btn btn-danger delete-cart-item"><i class='fa fa-trash'></i>Remove</button>
 
 </div>
 
 </div>
+@php
+      $total+=$item->products->selling_price*$item->prod_qtv;
+  @endphp
 @endforeach
+</div>
+<div class="card-footer">
+  <h6>Total Price : Rs. {{$total}}</h6>
+  <a href="{{url('checkout')}}" class="btn btn-outline-success float-end" >Proceed to Checkout</a>
 </div>
   </div>
 </div>
