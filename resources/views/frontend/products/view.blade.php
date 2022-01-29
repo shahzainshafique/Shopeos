@@ -6,7 +6,7 @@
 
 <div class="container">
 
-<h6 class="mb-0"><a href="{{url('category')}}">Collections </a>/ <a href="{{url('cateogry/'.$products->category->slug)}}"> {{$products->category->name}}</a> / <a href="{{url('cateogry/'.$products->category->slug.'/'.$products->slug)}}">{{$products->name}} </h6>
+<h6 class="mb-0"><a href="{{url('category')}}">Collections </a>/ <a href="{{url('category/'.$products->category->slug)}}"> {{$products->category->name}}</a> / <a href="{{url('category/'.$products->category->slug.'/'.$products->slug)}}">{{$products->name}} </h6>
 
 </div>
 
@@ -101,72 +101,3 @@
 
 </div>
 @endsection
-@section('scripts')
-<script>
-
-$(document).ready(function ()
-{
-    $('.addToCartBtn').click(function (e)
-   {
-
-       e.preventDefault();
-       var product_id=$(this).closest('.product_data').find('.prod_id').val();
-       var product_qtv=$(this).closest('.product_data').find('.qtv-input').val();
-       
-      
-       $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-          
-          
-
-});
-      $.ajax({
-          method:"Post",
-          
-          url:"/add-to-cart",
-
-          data:{
-              'product_id':product_id,
-              'product_qtv':product_qtv,
-          },
-          success: function (response){
-
-              swal(response.status);
-          }
-      });
-
-
-   });
-
-   $('.Increment-btn').click(function (e)
-   {
-       e.preventDefault();
-
-       var int_Value=$('.qtv-input').val();
-       var value=parseInt(int_Value,10);
-       value=isNaN(value) ? 0 : value;
-       if (value<11){
-           value++;
-           $('.qtv-input').val(value);
-       }
-   });
-   $('.decrement-btn').click(function (e)
-   {
-       e.preventDefault();
-
-       var dec_Value=$('.qtv-input').val();
-       var value=parseInt(dec_Value,10);
-       value=isNaN(value) ? 0 : value;
-       if (value>1){
-           value--;
-           $('.qtv-input').val(value);
-       }
-   });
-
-
-});
-
-    </script>
-    @endsection

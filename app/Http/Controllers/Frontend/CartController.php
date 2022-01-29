@@ -38,7 +38,7 @@ class CartController extends Controller
     }
     else
     {
-        return response()->json(['status'=>"login to continue"]);
+        return response()->json(['status'=>"Please login to continue"]);
     }
 }
 public function viewcart()
@@ -46,4 +46,19 @@ public function viewcart()
   $cartitems=Cart::where('user_id',Auth::id())->get();
   return view('frontend.cart',compact('cartitems'));
 }
+public function deleteproduct(Request $request)
+    {
+        if(Auth::check()){
+       $prod_id=$request->input('prod_id');
+       if(Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists()){
+         $cartitem=Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->first();
+         $cartitem->delete();
+        return response()->json(['status'=>"Product deleted successfully from cart!"]);
+
+       }
+      }
+       else{
+                 return response()->json(['status'=>"Please login to continue"]);
+       }
+    }
 }
