@@ -1,10 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\Admin\CategoryController;
-use app\Http\Controllers\Admin\ProductController;
-use app\Http\Controllers\Frontend\CartController;
-use app\Http\Controllers\Frontend\FrontendController;
+
+Use App\http\Controllers\Admin\CategoryController;
+use App\http\Controllers\Admin\ProductController;
+use App\http\Controllers\Frontend\FrontendController;
+use App\http\Controllers\Frontend\CartController;
+use App\http\Controllers\Frontend\CheckoutController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +36,8 @@ use app\Http\Controllers\Frontend\FrontendController;
 Route::post('add-to-cart',[CartController::class,'addProduct']);
 
 Route::middleware(['auth'])->group(function (){
-  Route::get('cart',[CartController::class,'viewcart']);
-});
 
+});
 Route::middleware(['auth','isAdmin'])->group(function () {
   
   Route::get('/dashboard', 'Admin\FrontendController@index');
