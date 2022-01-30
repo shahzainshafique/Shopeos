@@ -55,7 +55,7 @@ class CheckoutController extends Controller
                 OrderItem::create([
                  'order_id'=>  $order->id,
                  'prod_id' =>  $item->prod_id,
-                 'qty'=>$item->prod_qtv,
+                 'qtv'=>$item->prod_qtv,
                  'price'=>$item->products->selling_price
                 ]);
                 $prod=Product::where('id',$item->prod_id)->first();
