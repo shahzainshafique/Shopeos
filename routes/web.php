@@ -8,6 +8,8 @@ use App\http\Controllers\Frontend\FrontendController;
 use App\http\Controllers\Frontend\CartController;
 use App\http\Controllers\Frontend\CheckoutController;
 use App\http\Controllers\Frontend\UserController;
+Use App\http\Controllers\Admin\OrderController;
+Use App\http\Controllers\Admin\DashBoardController;
 
 
 // Route::get('/', function () {
@@ -50,5 +52,9 @@ Route::post('insert-product',[ProductController::class,'insert']);
 Route::get('edit-product/{id}',[ProductController::class,'edit']);
 Route::put('update-product/{id}',[ProductController::class,'update']);
 Route::get('delete-product/{id}',[ProductController::class,'destroy']);
+
+Route::get('users',[DashBoardController::class,'users']);
+
+Route::get('orders',[OrderController::class,'orders']);
 
 });
