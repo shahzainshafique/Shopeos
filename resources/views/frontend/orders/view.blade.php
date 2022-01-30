@@ -23,10 +23,8 @@
                             <label for="">Email</label>
                             <div class="border">{{$orders->email}}</div>
                             <label for="">Contact No.</label>
-                            <div class="border">{{$orders->lname}}</div>
+                            <div class="border">{{$orders->phone}}</div>
                             <label for="">Shipping Address</label>
-                            <div class="border">{{$orders->lname}}</div>
-                            <label for="">Contact No.</label>
                             <div class="border">{{$orders->address1}},<br>
                                 {{$orders->address2}},<br>
                             {{$orders->city}},<br>
@@ -52,9 +50,9 @@
                             @foreach ($orders->orderitems as $item)
                             <tr>
                                 <td>{{$item->products->name}}</td>
-                                <td>{{$item->prod_qtv}}</td>
-                                <td>{{$item->price}}</td>
-                                {{-- <img src="{{asset('assets/uploads/products/'.$item->products->image)}}" width="50px" alt="Product Image"> --}}
+                                <td>{{$item->qtv}}</td>
+                                <td>Rs.{{$item->price}}</td>
+                               <td> <img src="{{asset('assets/uploads/products/'.$item->products->image)}}" width="50px" alt="Product Image"></td>
                             </tr>
                             
                             @endforeach
