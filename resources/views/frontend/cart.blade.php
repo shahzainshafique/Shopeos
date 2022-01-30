@@ -14,6 +14,8 @@
 </div>
 <div class="container my-5">
   <div class="card shadow">
+@if ($cartitems->count()>0)
+    
 
 <div class="card-body">
   @php
@@ -75,9 +77,12 @@
   <h6>Total Price : Rs. {{$total}}</h6>
   <a href="{{url('checkout')}}" class="btn btn-outline-success float-end" >Proceed to Checkout</a>
 </div>
-  </div>
+@else
+<div class="card-body text-center">
+  <h2>Your <i class="fa fa-shopping-cart"></i> Cart is empty!</h2>
+  <a href="{{url('category')}}" class="btn btn-outline-primary float-end">Continue Shopping</a>
 </div>
-
-
-
+@endif
+</div>
+</div>
 @endsection

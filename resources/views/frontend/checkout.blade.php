@@ -21,6 +21,10 @@
                     <label for="">First Name</label>
                   <input type="text" class="form-control"value="{{ Auth::user()->name }}" name="fname" placeholder="Enter first Name">
                   </div>
+                  <div class="col-md-6">
+                    <label for="">Last Name</label>
+                  <input type="text" class="form-control"value="{{ Auth::user()->lname }}" name="lname" placeholder="Enter last Name">
+                  </div>
 
                   <div class="col-md-6">
                     <label for="">Email</label>
@@ -55,6 +59,10 @@
                   <div class="col-md-6">
                     <label for="">State</label>
                   <input type="text" class="form-control" value="{{ Auth::user()->state }}" name="state" placeholder="State">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="">Pin Code</label>
+                  <input type="text" class="form-control" value="{{ Auth::user()->pincode }}" name="pincode" placeholder="Pin code">
                   </div>
                   
 
