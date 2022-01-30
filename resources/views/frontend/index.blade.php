@@ -16,17 +16,17 @@
                 <a href="{{url('category/'.$prod->category->slug.'/'.$prod->slug)}}">
                     <div class="card" >
                         
-                        <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: 200px;height:200px">
+                        <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: auto;height:240px">
                         <div class="card-body">
                             <h5>{{$prod->name}}</h5>
                         <span class="float-start">Rs.{{$prod->selling_price}}</span>
                         <span class="float-end"><s>Rs.{{$prod->original_price}}</s></span>
                     
-                    </div></div></div>@endforeach
+                    </div></div></a></div>@endforeach
                      {{-- @endforeach --}}
 </div>
                 </div>
-            </a>
+            
         </div>
     </div>
     
@@ -43,7 +43,7 @@
                 <div class="item">
                     <a href="{{url('view-category/'.$tcategory->slug)}}">
                     <div class="card" >
-                        <img src="{{asset('assets/uploads/category/'.$tcategory->image)}}" alt="product image" style="width: 200px;height:200px">
+                        <img src="{{asset('assets/uploads/category/'.$tcategory->image)}}" alt="product image" style="width: auto;height:auto">
                         <div class="card-body">
                             <h5>{{$tcategory->name}}</h5>
                         <p>
@@ -59,7 +59,7 @@
 @endsection
 @section('scripts')
     <script>$('.featured-carousel').owlCarousel({
-    loop:false,
+    loop:true,
     margin:10,
     nav:true,
     dots:false,
@@ -71,7 +71,7 @@
             items:3
         },
         1000:{
-            items:4
+            items:5
         }
     }
 })</script>
