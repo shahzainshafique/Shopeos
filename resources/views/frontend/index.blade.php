@@ -16,7 +16,7 @@
                 <a href="{{url('category/'.$prod->category->slug.'/'.$prod->slug)}}">
                     <div class="card" >
                         
-                        <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: auto;height:240px">
+                        <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: auto;height:310px">
                         <div class="card-body">
                             <h5>{{$prod->name}}</h5>
                         <span class="float-start">Rs.{{$prod->selling_price}}</span>
@@ -71,7 +71,7 @@
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 })</script>

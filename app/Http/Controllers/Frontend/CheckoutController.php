@@ -60,11 +60,8 @@ class CheckoutController extends Controller
                  'price'=>$item->products->selling_price
                 ]);
                 $prod=Product::where('id',$item->prod_id)->first();
-<<<<<<< HEAD
                 
-=======
                 $prod->qty=$prod->qty - $item->prod_qtv;
->>>>>>> 4a12f1d4b04aaffb74a3e5c37bc16d8577cc6bd4
                 $prod->update();
               }
               if(Auth::user()->address1==NULL)
@@ -84,6 +81,6 @@ class CheckoutController extends Controller
 
               $oldcartitems=Cart::where('user_id',Auth::id())->get();
               Cart::destroy($oldcartitems);
-              return redirect('/')->with('status','Order Place Succesfully');
+              return redirect('/')->with('status','Order Placed Succesfully!');
     }
 }
