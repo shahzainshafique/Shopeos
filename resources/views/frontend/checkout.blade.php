@@ -65,6 +65,11 @@
                   <input type="text" class="form-control" value="{{ Auth::user()->pincode }}" name="pincode" placeholder="Pin code">
                   </div>
                   
+                  <div class="col-md-6">
+                    <label for="">Pin Code</label>
+                  <input type="text" class="form-control"value="{{ Auth::user()->pincode }}" name="pincode" placeholder="Enter Pincode">
+                  </div>
+
 
 
 </div>   
