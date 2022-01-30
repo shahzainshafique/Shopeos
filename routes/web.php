@@ -7,6 +7,7 @@ use App\http\Controllers\Admin\ProductController;
 use App\http\Controllers\Frontend\FrontendController;
 use App\http\Controllers\Frontend\CartController;
 use App\http\Controllers\Frontend\CheckoutController;
+use App\http\Controllers\Frontend\UserController;
 
 
 // Route::get('/', function () {
@@ -26,6 +27,8 @@ Route::post('update-cart',[CartController::class,'updatecart']);
 Route::middleware(['auth'])->group(function (){
  Route::get('cart',[CartController::class,'viewcart']);
  Route::get('checkout',[CheckoutController::class,'index']);
+ Route::get('my-orders',[UserController::class,'index']);
+ Route::get('view-order',[UserController::class,'view']);
 });
 Route::middleware(['auth','isAdmin'])->group(function () {
   
