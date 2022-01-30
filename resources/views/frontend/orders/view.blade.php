@@ -52,9 +52,9 @@
                             @foreach ($orders->orderitems as $item)
                             <tr>
                                 <td>{{$item->products->name}}</td>
-                                <td>{{$item->qty}}</td>
+                                <td>{{$item->prod_qtv}}</td>
                                 <td>{{$item->price}}</td>
-                                <img src="{{asset('assets/uploads/products/'.$item->products->image)}}" width="50px" alt="Product Image">
+                                {{-- <img src="{{asset('assets/uploads/products/'.$item->products->image)}}" width="50px" alt="Product Image"> --}}
                             </tr>
                             
                             @endforeach

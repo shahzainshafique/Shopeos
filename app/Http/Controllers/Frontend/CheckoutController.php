@@ -36,9 +36,15 @@ class CheckoutController extends Controller
           $order->address1=$request->input('address1');
           $order->address2=$request->input('address2');
           $order->city=$request->input('city');
+          $order->state=$request->input('state');
           $order->country=$request->input('country');
           $order->pincode=$request->input('pincode');
-          $order->state=$request->input('state');
+          $total=0;
+          $cartitems_total=Cart::where('user_id',Auth::id())->get();
+          foreach ($cartitems_total as $prod) {
+            $total += $prod->products->selling_price * $prod->prod_qtv;
+          }
+          $order->total_price=$total;
           $order->tracking_no='ehtisham'.rand(1111,9999);
           $order->save();
 
@@ -50,11 +56,15 @@ class CheckoutController extends Controller
                 OrderItem::create([
                  'order_id'=>  $order->id,
                  'prod_id' =>  $item->prod_id,
-                 'qtv'=>$item->prod_qtv,
+                 'qty'=>$item->prod_qtv,
                  'price'=>$item->products->selling_price
                 ]);
                 $prod=Product::where('id',$item->prod_id)->first();
+<<<<<<< HEAD
                 
+=======
+                $prod->qty=$prod->qty - $item->prod_qtv;
+>>>>>>> 4a12f1d4b04aaffb74a3e5c37bc16d8577cc6bd4
                 $prod->update();
               }
               if(Auth::user()->address1==NULL)

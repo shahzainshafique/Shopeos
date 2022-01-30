@@ -19,8 +19,8 @@
                         <img src="{{asset('assets/uploads/products/'.$prod->image)}}" alt="product image" style="width: 200px;height:200px">
                         <div class="card-body">
                             <h5>{{$prod->name}}</h5>
-                        <span class="float-start">{{$prod->selling_price}}</span>
-                        <span class="float-end"><s>{{$prod->original_price}}</s></span>
+                        <span class="float-start">Rs.{{$prod->selling_price}}</span>
+                        <span class="float-end"><s>Rs.{{$prod->original_price}}</s></span>
                     
                     </div></div></div>@endforeach
                      {{-- @endforeach --}}
@@ -59,7 +59,7 @@
 @endsection
 @section('scripts')
     <script>$('.featured-carousel').owlCarousel({
-    loop:true,
+    loop:false,
     margin:10,
     nav:true,
     dots:false,
