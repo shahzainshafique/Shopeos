@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\OrderItem;
 use App\Models\Cart;
 use App\Models\User;
@@ -29,7 +30,7 @@ class CheckoutController extends Controller
           $order=new Order();
           $order->user_id=Auth::id();
           $order->fname=$request->input('fname');
-          $user->lname=$request->input('lname');
+          $order->lname=$request->input('lname');
           $order->email=$request->input('email');
           $order->phone=$request->input('phone');
           $order->address1=$request->input('address1');
@@ -39,7 +40,7 @@ class CheckoutController extends Controller
           $order->pincode=$request->input('pincode');
           $order->state=$request->input('state');
           $order->tracking_no='ehtisham'.rand(1111,9999);
-          order->save();
+          $order->save();
 
           $order->id;
 
@@ -53,7 +54,7 @@ class CheckoutController extends Controller
                  'price'=>$item->products->selling_price
                 ]);
                 $prod=Product::where('id',$item->prod_id)->first();
-                $prod->qtv=$prod->qtv - $item->$prod_qtv;
+                
                 $prod->update();
               }
               if(Auth::user()->address1==NULL)
